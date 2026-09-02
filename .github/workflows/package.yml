@@ -1,0 +1,15 @@
+name: package-transfer
+on:
+  push:
+    branches: [ main ]
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prior-art-originals
+          path: prior_art_and_arrowhead_originals.tar.gz
+          if-no-files-found: error
+          compression-level: 0
